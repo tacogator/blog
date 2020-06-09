@@ -1,0 +1,36 @@
+---
+title: Destructure and rename variables in ES6
+date: 2020-06-12
+description: How to destructure and rename variables in ES6.
+tags:
+  - javascript
+  - es6
+banner: "./des.png"
+---
+
+Destructure and at the same time rename variables using ES6 syntax is another one of those handy tricks I can't remember the syntax.
+
+Let's consider this example:
+
+```javascript
+// Coordinates of Portland, Oregon
+const longitude = -122.676483
+const latitude = 45.523064
+
+// Here you can't destructure longitude and latitude 
+// from the response object because the same variables
+// already exist
+const {longitude, latitude} = response.data
+```
+
+Fortunately, you can rename variables on the fly as you destructure them by simply declaring the new name following a colon, like this:
+
+*const {actual_name : new_name} =  props*
+
+
+To fix duplicate variables error in our previous example:
+```
+...
+// currentLng and currentLat are your new variables
+const {longitude: currentLng, latitude: currentLat} = response.data
+```

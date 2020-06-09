@@ -1,0 +1,62 @@
+---
+title: "Deploy Your Gatsby Site with GitLab Pages for Free" 
+date: 2020-06-13
+description: How to deploy your Gatsby site with GitLab Pages for free.
+tags:
+  - GitLab
+  - Gatsby
+  - Netlify
+banner: "./banner.png"
+---
+
+When you use Netlify to deploy a Gatsby project, you can tell Netlify engineers have been working hard to make the workflow as seamless as possible.
+
+In case you're not familiar with the workflow, the only thing you need to do is import your Gatsby git repo into Netlify, and the build tool will do its magic, build and deploy your site to a shareable URL such as https://my-cool-blog.netlify.app.
+
+Netlify now watches changes to your git repo — whenever there's a code commit, your site will be built automatically and delivered to Netlify's CDN.
+
+## No Free Lunch
+
+Do you still remember a time when your cell phone plan had 500 minutes of talk time?
+Netlify's starter plan gives you 300 free minutes/month of build time.  If you're actively working on several projects at the same time, chances are you will consume all the free build minutes pretty fast.
+
+## GitLab Pages&#58; The Free Alternative
+
+GitLab is an all-in-one DevOps platform&#58; git hosting + continuous integration + project management.
+
+One of their unsung features is GitLab Pages which provides support for static site hosting. In order to activate the Pages feature you need to add a `.gitlab-ci.yml` build file to your project.
+
+Here's the build file for this blog (whatsaas.xyz):
+
+```yaml
+# This folder is cached between builds
+# http://docs.gitlab.com/ce/ci/yaml/README.html#cache
+cache:
+  paths:
+    - node_modules/
+
+image: node:14-buster-slim
+
+pages:
+  script:
+    - yarn install
+    - ./node_modules/.bin/gatsby build
+  artifacts:
+    paths:
+      - public
+
+# Uncomment the following section if you 
+# just want to deploy the master branch
+#  only:
+#    - master
+```
+
+By default your site lives under *.gitlab.io domain.  GitLab Pages also supports custom domain and custom certificate.
+
+## Bonus Tip&#58; Let GitLab Mirror Your GitHub Repos
+
+If you're not yet ready to migrate your Gatsby repos on GitHub (or BitBucket) over to GitLab, you can create "pull-only" repos on GitLab to mirror repos hosted elsewhere.  And this allows you to take advantage of GitLab continuous build and static page hosting.
+
+*This blog is hosted by GitLab Pages.  The author has no financial ties to GitLab.*
+
+*Illustration by https://absurd.design*

@@ -1,17 +1,48 @@
 ---
-title: "Freegan Fingerstache Craft Beer"
-date: 2020-04-08
+title: "How To Center a Div"
+date: 2020-06-08
 tags:
-- music
-- travel
-banner: "./vinyl-jace-afsoon.jpeg"
+- css
+banner: "./center.png"
 ---
-I'm baby migas aute mustache retro chia tousled woke chambray hell of. Yuccie fixie keytar occupy, everyday carry pickled 3 wolf moon. Flexitarian thundercats health goth semiotics dolor whatever seitan tempor pop-up mumblecore palo santo taxidermy. Sriracha man bun heirloom XOXO. Hell of af pinterest tempor 3 wolf moon. Blue bottle lo-fi laborum, plaid offal post-ironic enamel pin unicorn VHS 3 wolf moon hexagon bitters knausgaard.
+Every now and then whenever I need to align a button or a div in the center of a container I can't seem to remember how to do it.
 
-Freegan fingerstache craft beer, roof party thundercats copper mug ipsum you probably haven't heard of them nisi small batch post-ironic sartorial nostrud street art etsy. Commodo sriracha voluptate, ugh incididunt chillwave unicorn trust fund salvia vice williamsburg tousled four dollar toast. Nostrud hashtag quinoa irony. 
+**Option 1:  The old school way**
 
-## Chicharrones offal tofu pitchfork jianbing
+```css
+.center {
+    margin: 0 auto;
+    width: 250px;
+}
+```
+Caveat:  *In order for this method to work, the div you want to center must have the `width` property.*
 
-Lyft drinking vinegar cloud bread DIY VHS. Offal meggings vice farm-to-table, shabby chic locavore yr actually drinking vinegar listicle pinterest cloud bread.
+**Option 2: The flexbox method**
 
-Do shoreditch prism, hell of reprehenderit flannel est shaman irony. Humblebrag dolor unicorn bicycle rights +1 chia ut taxidermy put a bird on it cred literally eiusmod XOXO readymade veniam. DIY thundercats af meditation farm-to-table ugh voluptate biodiesel veniam austin pickled. Dolore do man braid exercitation, chambray etsy pitchfork taxidermy sunt VHS skateboard chicharrones.
+```
+.parent {
+  display: flex;
+  justify-content: center; /* horizontal alignment */
+  align-items: center;     /* vertical */
+  background: LightSteelBlue;
+  height: 50px;
+}
+
+<div class="parent">
+  <div>
+    <button>I &hearts; taco</button>
+    <button>Cancel</button>
+  </div>
+</div>
+```
+![center div with flexbox](./center-flexbox.png)
+[edit on jsfiddle](https://jsfiddle.net/tacogator/hwgs3j16/2/)
+
+
+
+
+
+
+
+---
+Photo by https://unsplash.com/@ahmetsali

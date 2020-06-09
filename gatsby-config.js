@@ -1,13 +1,13 @@
 module.exports = {
   siteMetadata: {
     // Used for the title template on pages other than the index site
-    siteTitle: `Clarrise McClellan`,
+    siteTitle: `What the SaaS! | Kubernetes | Javascript | Python | SaaS`,
     // Default title of the page
-    siteTitleAlt: `Gatsby blog template with material-ui`,
+    siteTitleAlt: `What the SaaS | Kubernetes | Javascript | Python | SaaS`,
     // Will be used to generate absolute URLs for og:image, sitemap, etc.
-    siteUrl: `https://gatsby-theme-clarisse.netlify.app`,
+    siteUrl: `https://whatsaas.xyz`,
     // Used for SEO
-    siteDescription: `Launch a blog with this Gatsby starter. Minimal design, tag support, Material-UI components.`,
+    siteDescription: `What the SaaS blog.  Time-saving tips and how-to articles about Kubernetes, Javascript, Python.`,
     // Will be set on the <html /> tag
     siteLanguage: `en`,
     // Used for og:image and must be placed inside the `static` folder
@@ -25,8 +25,8 @@ module.exports = {
         slug: `/about`,
       },
       {
-        title: `Contact`,
-        slug: `/contact`,
+        title: `Topics`,
+        slug: `/tags`,
       },
     ],
     externalLinks: [
@@ -37,11 +37,6 @@ module.exports = {
       {
         name: `github`,
         url: `https://github.com/tacogator/gatsby-themes`,
-      },
-      {
-        name: 'Newsletter',
-        url: `https://duckduckgo.com`,
-        type: 'cta'
       }
     ],
   },
@@ -53,9 +48,9 @@ module.exports = {
     {
       resolve: `gatsby-plugin-manifest`,
       options: {
-        name: `Clarrise - Example Gatsby blog`,
-        short_name: `Clarrise - Example Gatsby blog`,
-        description: `Launch a blog today with Clarrise template.  Gatsby starter theme`,
+        name: `What the SaaS | Kubernetes | Javascript | Python`,
+        short_name: `What the SaaS | Kubernetes | Javascript | Python`,
+        description: `What the SaaS | Kubernetes | Javascript | Python`,
         start_url: `/`,
         background_color: `#fafafa`,
         theme_color: `#00897B`,
@@ -74,5 +69,12 @@ module.exports = {
         ],
       },
     },
+    {
+      resolve: 'gatsby-plugin-mailchimp',
+      options: {
+          endpoint: 'https://gmail.us20.list-manage.com/subscribe/post?u=786601ed01260900f7a6d1546&amp;id=4e6bf36386', 
+          timeout: 3500, 
+      },
+    }
   ],
 };
