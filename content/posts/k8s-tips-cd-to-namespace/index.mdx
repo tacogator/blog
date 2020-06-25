@@ -1,0 +1,36 @@
+---
+title: A simpler way to switch between namespaces
+date: 2020-04-09
+description: A simple bash script to change namespace like Linux 'cd' 
+tags:
+  - kubernetes
+slug: cd-to-k8s-namespace
+---
+For the life of me when working with `kubectl` I can never remember how "enter" a namespace so that I can run more commands without specifying '-n namespace'.
+
+Here's 'kkcd' utility function that works just like the `cd` command.
+
+```
+# add this to ~/.bash_profile 
+
+## kk is easier to type than kubectl
+alias kk='kubectl'
+
+
+function kkcd() {
+  [ -z $1 ] && echo "Missing namespace" && return 1
+  kubectl config set-context --current --namespace=$1 && PS1="\w (ns=$1)# "
+  return $?
+}
+
+```
+Example:
+
+```
+kkcd kube-system
+
+~ (ns=kube-system)# kk get pods
+NAME                                    READY   STATUS    RESTARTS   AGE
+cilium-operator-d5cd7d758-kv8sz         1/1     Running   0          22d
+cilium-qnhhf                            1/1     Running   1          23d
+```
