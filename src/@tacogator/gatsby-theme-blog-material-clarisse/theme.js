@@ -156,7 +156,8 @@ export const GlobalCss = withStyles({
     "blockquote p": {
       ...theme.typography.body1,
       textShadow: "0 1px white",
-      fontSize: "1.55rem",
+      fontSize: "1.65rem",
+      fontFamily: "Aleo, Serif"
     },
     ol: {
       padding: "0.25rem 2rem",
